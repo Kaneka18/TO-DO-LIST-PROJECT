@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <style>
+            .nav {
+ 
+   list-style-type: none;
+   text-align: center;
+   margin: 0;
+   padding: 0;
+ }
+ 
+ .nav li {
+   display: inline-block;
+   font-size: 20px;
+   padding: 20px;
+ }
+        </style> -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible"> 
+    <!-- <meta name="description" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    <title>TO-DO LIST</title>
+
+    <link href="/views/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="main-border">
+
+        <div class="container"> 
+            <div class="title">
+                <h1>TO-DO LIST</h1>
+            </div>
+            <div class="btn">
+                <button id="addTaskBtn">Add Task + </button>
+            </div>
+        </div>
+
+        <div id="addTaskContainer" class="border-two">
+            <form method="POST" id="taskForm">
+                <label for="taskName">Task name :</label>
+                <input type="text" id="taskName" name="taskName" required minlength="1" maxlength="30"> <br><br>
+                <label for="dueDate">Due date :</label>
+                <input type="datetime-local" id="dueDate" name="dueDate" required> <br><br>
+                <label for="setReminder">Set reminder :</label>
+                <input type="checkbox" id="setReminder" name="setReminder"> <br><br>
+                <button class="save1" id="submitBtn" type="submit">Save Task</button>
+            </form>
+        </div>
+        <br>
+        <div id="tasksContainer">
+            <% if (rows.length >0){ %>
+                <% rows.forEach(function(row){
+                    var reminderClass = row.setReminder ? "add-reminder" : ""; %>
+                    <div id ="<%= row.taskId %>" class="rows <%= reminderClass %>">
+                        <!--a single row(task) or element -->
+                        <h2>
+                            <span class="task-name"><%= row.taskName %></span>
+                            <span id="deleteBtn_<%= row.taskId %>" class="delete-btn"> <i class="fas fa-times"></i> </span>
+                            <span id="updateBtn_<%= row.taskId %>" class="update-btn"> <i class="fas fa-pencil-alt"></i> </span>
+                        </h2>
+                        <p class="date"> </p>
+                        <p class="task-duedate" hidden><%=row.dueDate %></p>
+                    </div>
+                <% });
+            }
+            else{ %>
+                    <div id="no-task">
+                        <h4> No Record Found </h4>
+                    </div>
+            <% } %>
+        </div>
+        <div class="refreshTask">
+           <p class="lastUpdate">Last Update:</p>
+           <p class="lastUpdateDate">never</p>
+           <i class="fas fa-sync-alt"></i>
+        </div>
+        <div class="copyright">
+           <p>Copyright</p>
+           <i class="far fa-copyright"></i> 
+           <p class="year">2021</p>
+        </div>
+        <div class="about"> <a href=/about>About</a> </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src='/views/script.js'></script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+.main-border {
+    border: 2px solid purple;
+    margin: 40px 200px;
+    /* width: 50%; */
+    padding: 20px;
+}
+
+.border-two {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 2px;
+}
+
+.container {
+    width: 100%;
+    height: 75px;
+}
+
+.title {
+    float: left;
+}
+
+.btn {
+    float: right;
+    padding-top: 25px;
+}
+
+#addTaskBtn {
+    background-color: #98FB98;
+}
+
+.button {
+    background-color: green;
+}
+
+.save1 {
+    background-color: #98FB98;
+    width: 20%;
+}
+
+label {
+    text-align: right;
+    display: inline-block;
+    padding: 3px 6px;
+    width: 92px;
+    vertical-align: top;
+}
+
+input {
+    /* display: inline-block; */
+    width: 200px;
+}
+
+/* input[type="checkbox"] {
+    width: 0px;
+} */
+
+#setReminder{
+    margin-right: 97px;
+    margin-left: -92px;
+    width: 200px;
+    vertical-align: bottom;
+    height: 18px;
+}
+
+#tasksContainer {
+    width: 100%;
+}
+
+.rows {
+    padding: 14px;
+    background-color: rgb(240, 240, 240);
+    margin-bottom: 5px;
+    padding-bottom: 1px;
+}
+
+.fa-pencil-alt:before {
+    padding-right: 10px;
+    font-size: medium;
+    font-weight: 600;
+}
+
+.fa-times:before {
+    font-size: large;
+    font-weight: 1000;
+    color: red;
+}
+
+h2 {
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+span {
+    float: right;
+}
+
+h1 {
+    text-align: left;
+}
+
+.add-reminder {
+    border-left: 6px solid blue;
+}
+
+#taskForm {
+    text-align: center;
+}
+
+#no-task {
+    padding: 14px;
+    background-color: rgb(240, 240, 240);
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#no-task h4 {
+    font-weight: 100;
+    /* can use !important for preference*/
+}
+
+.task-duedate {
+    margin-top: 47px;
+    margin-bottom: 2px;
+}
+
+.task-name {
+    float: left;
+}
+
+.date{
+    padding-top: 27px;
+}
+
+.refreshTask{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.lastUpdate{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+
+.lastUpdateDate {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    padding-right: 8px;  
+}
+
+.fa-sync-alt{
+    padding-right: 3px;
+}
+
+#addTaskContainer{
+    display: none;
+}
+
+.copyright{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about{
+    text-align: center;
+}
+
+.details{
+  padding-bottom: 40px;
+  padding-top: 80px;
+}
+
+.main {
+    border: 2px solid purple;
+    margin: 40px 200px;
+    padding: 20px;
+    height: 300px;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .main-border {
+          margin: 20px 180px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .main-border {
+          margin: 20px 150px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .main-border {
+          margin: 20px 130px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .main-border {
+          margin: 20px 110px;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .main-border {
+          margin: 20px 90px;
+    }
+}
+
+@media only screen and (max-width: 615px) {
+    .main-border {
+          margin: 20px 65px;
+    }
+}
+
+@media only screen and (max-width: 515px) {
+    .main-border {
+          margin: 20px 35px;
+    }
+}
+
+@media only screen and (max-width: 485px) {
+    .main-border {
+          margin: 20px 15px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .main-border {
+          margin: 20px 7px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .main-border {
+          margin: 20px 0px;
+    }
+}
+
+@media only screen and (max-width: 335px) {
+    .main-border {
+          margin: 20px 0px;
+          padding: 6px;
+    }
+    h1{
+       font-size: large;
+    }
+}
+
+
+@media only screen and (max-width: 850px) {
+    .main {
+          margin: 20px 100px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main {
+          margin: 20px 50px;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    #setReminder {
+          margin-left: 67px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .main {
+          margin: 20px 20px;
+    }
+    #setReminder {
+          margin-left: 38px;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    .main {
+          margin: 20px 0px;
+    }
+    #aboutTitle{ 
+          font-size: 2em;
+     }
+    #setReminder {
+          margin-left: 2px;
+    }
+}
