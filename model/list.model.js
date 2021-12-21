@@ -9,7 +9,7 @@ var listSchema = new mongoose.Schema({
         type: String,
         required: "Required"
     },
-    setReminder: {
+    setAsImportant: {
         type: Boolean,
         required: "Required"
     },

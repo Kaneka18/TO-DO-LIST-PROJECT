@@ -113,8 +113,8 @@ $(".fa-sync-alt").on("click",function(event){
                  $.each(data, function(i, obj) {
                     var date = obj.dueDate;
                     var formattedDate= getFormattedDate(date, "longDate");
-                    var reminderClass = obj.setReminder ? "add-reminder" : ""; 
-                    var taskElement =$('<div id ="'+ obj.taskId + '" class="rows '+ reminderClass + 
+                    var setAsImportantClass = obj.setAsImportant ? "add-important" : ""; 
+                    var taskElement =$('<div id ="'+ obj.taskId + '" class="rows '+ setAsImportantClass + 
                      '"> <h2> <span class="task-name">'+ obj.taskName + '</span> <span id="deleteBtn_'+ obj.taskId +
                      '" class="delete-btn"> <i class="fas fa-times"></i> </span> <span id="updateBtn_'+ obj.taskId +
                      '" class="update-btn"> <i class="fas fa-pencil-alt"></i> </span> </h2> <p class="date">'+ formattedDate +
@@ -187,7 +187,7 @@ $("#taskForm").on("submit", function(event) {
      var data = {
         taskName: $("#taskName").val(),
         dueDate: $("#dueDate").val(),
-        setReminder: $("#setReminder").is(":checked")
+        setAsImportant: $("#setAsImportant").is(":checked")
     };
     data = JSON.stringify(data);
     $.ajax({
@@ -205,10 +205,10 @@ $("#taskForm").on("submit", function(event) {
                 $('#taskForm').each(function() {
                     this.reset();
                 });
-                var reminderClass = data.setReminder ? "add-reminder" : "";
+                var setAsImportantClass = data.setAsImportant ? "add-important" : "";
                 var date = data.dueDate;
                 var formattedDate= getFormattedDate(date, "longDate");
-                var taskElement = $('<div id ="' + data.taskId + '" class="rows ' + reminderClass + '"> <h2> <span class="task-name">'+ data.taskName +
+                var taskElement = $('<div id ="' + data.taskId + '" class="rows ' + setAsImportantClass + '"> <h2> <span class="task-name">'+ data.taskName +
                 '</span> <span id="deleteBtn_' + data.taskId + '" class="delete-btn"> <i class="fas fa-times"> </i> </span> <span id="updateBtn_' + data.taskId +
                 '" class="update-btn"> <i class="fas fa-pencil-alt"> </i> </span> </h2> <p class="date">' + formattedDate + '</p> <p class="task-duedate" hidden>'+ data.dueDate + 
                 '</p> </div>');
@@ -243,7 +243,7 @@ $("#taskForm").on("submit", function(event) {
        var data = {
         taskName: $("#taskName").val(),
         dueDate: $("#dueDate").val(),
-        setReminder: $("#setReminder").is(":checked"),
+        setAsImportant: $("#setAsImportant").is(":checked"),
         taskId : submitBtn.data("taskId")
     };
     data = JSON.stringify(data);
@@ -270,11 +270,11 @@ $("#taskForm").on("submit", function(event) {
                $("#"+ $.escapeSelector(data.taskId)).children()[1].innerHTML = getFormattedDate(date, "longDate");
 
                // if( $("#"+ $.escapeSelector(data.taskId)).hasClass("add-reminder"))
-               if(data.setReminder ){
-                  $("#"+ $.escapeSelector(data.taskId)).addClass("add-reminder");
+               if(data.setAsImportant){
+                  $("#"+ $.escapeSelector(data.taskId)).addClass("add-important");
                }
                else{
-                  $("#"+ $.escapeSelector(data.taskId)).removeClass("add-reminder");
+                  $("#"+ $.escapeSelector(data.taskId)).removeClass("add-important");
                }
             } 
             else {
@@ -330,7 +330,7 @@ function updateTask(updateElement) {
     var data = {
         taskName : updateElement.siblings('.task-name')[0].innerHTML,
         dueDate : updateElement.parent().siblings('.task-duedate')[0].innerHTML,
-        setReminder : updateElement.parent().parent().hasClass("add-reminder"),
+        setAsImportant : updateElement.parent().parent().hasClass("add-important"),
         taskId : updateElement.attr("id").split('_').pop()
     };
     showAddUpdateTaskContainer(data);
@@ -340,7 +340,7 @@ function showAddUpdateTaskContainer(data) {     //optional to send parameter :da
     let addTaskContainer = $("#addTaskContainer");
     var addBtn = $("#addTaskBtn");
     var submitBtn = $("#submitBtn");
-    var setReminder = $('#setReminder');
+    var setAsImportant = $('#setAsImportant');
 
     addTaskContainer.show();
     addBtn.html('Close X');
@@ -348,11 +348,11 @@ function showAddUpdateTaskContainer(data) {     //optional to send parameter :da
     if(data){
      $('#taskName').val(data.taskName);
      $('#dueDate').val(data.dueDate);
-     if(data.setReminder){
-         setReminder.prop('checked', true);
+     if(data.setAsImportant){
+         setAsImportant.prop('checked', true);
      }
      else{
-         setReminder.prop('checked', false);
+         setAsImportant.prop('checked', false);
      }
      submitBtn.html('Update Task');
      submitBtn.data("submitMode","Update");

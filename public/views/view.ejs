@@ -44,8 +44,8 @@
                 <input type="text" id="taskName" name="taskName" required minlength="1" maxlength="30"> <br><br>
                 <label for="dueDate">Due date :</label>
                 <input type="datetime-local" id="dueDate" name="dueDate" required> <br><br>
-                <label for="setReminder">Set reminder :</label>
-                <input type="checkbox" id="setReminder" name="setReminder"> <br><br>
+                <label for="setAsImportant">Set as important :</label>
+                <input type="checkbox" id="setAsImportant" name="setAsImportant"> <br><br>
                 <button class="save1" id="submitBtn" type="submit">Save Task</button>
             </form>
         </div>
@@ -53,8 +53,8 @@
         <div id="tasksContainer">
             <% if (rows.length >0){ %>
                 <% rows.forEach(function(row){
-                    var reminderClass = row.setReminder ? "add-reminder" : ""; %>
-                    <div id ="<%= row.taskId %>" class="rows <%= reminderClass %>">
+                    var setAsImportantClass = row.setAsImportant ? "add-important" : ""; %>
+                    <div id ="<%= row.taskId %>" class="rows <%= setAsImportantClass %>">
                         <!--a single row(task) or element -->
                         <h2>
                             <span class="task-name"><%= row.taskName %></span>

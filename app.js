@@ -96,7 +96,7 @@ app.post("/addTask", (req, res) => {
 
     newlist.taskName = req.body.taskName;
     newlist.dueDate = req.body.dueDate;
-    newlist.setReminder = req.body.setReminder;
+    newlist.setAsImportant = req.body.setAsImportant;
     newlist.taskId = Math.random();
     newlist.save((err, doc) => {
         if (!err) {
